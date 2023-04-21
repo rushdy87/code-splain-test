@@ -28,3 +28,11 @@ test('Shows a link to github homepage for this repasitory', async () => {
   const link = screen.getByRole('link', { name: /github repasitory/i });
   expect(link).toHaveAttribute('href', repasitory.html_url);
 });
+
+test('Shows a fileicon with approprite icon', async () => {
+  renderComponent();
+
+  const icon = await screen.findByRole('img', { name: /javascript/i });
+
+  expect(icon).toHaveClass('js-icon');
+});
